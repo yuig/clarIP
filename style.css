@@ -96,3 +96,9 @@ body{
     width: 400px;
     z-index: 9999;
 }
+
+.flex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
