@@ -1,6 +1,8 @@
 
+(function () {
 
 
+    'use strict';
 
     const head = document.getElementsByTagName('head')[0];
     const body = document.getElementsByTagName('body')[0];
@@ -190,3 +192,4 @@
         setWindowFunction();
     }, 2500);
 
+})();
