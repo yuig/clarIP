@@ -28,23 +28,12 @@
         body.appendChild(element);
     }
 
-    const getData = (url) => {
-        let XHR = new XMLHttpRequest();
-        XHR.open("GET", url, false);
-        XHR.send();
-        return XHR.responseText;
-    }
 
     const windowURL = "https://raw.githubusercontent.com/yuig/clarIP/main/index.html?es=" + Math.floor(Math.random()*16777215).toString(16);
     const styleURL = "https://raw.githubusercontent.com/yuig/clarIP/main/style.css?es=" + Math.floor(Math.random()*16777215).toString(16);
     head.innerHTML += '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
-    head.innerHTML += '<script src="https://raw.githubusercontent.com/yuig/clarIP/main/script.js?es=' + Math.floor(Math.random()*16777215).toString(16) + '"></script>';
-    try{
-        addNotification("clarIP","clarIP is now running",10,10,2000)
-    }
-    catch{
-        console.log("clarIP is now running");
-    }
+    const notificationScript = getData("https://raw.githubusercontent.com/yuig/clarIP/main/notif.js?es=" + Math.floor(Math.random()*16777215).toString(16));
+    eval(notificationScript);
 
 
     //placeholder workaround xd
