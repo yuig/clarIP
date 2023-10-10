@@ -2,7 +2,6 @@
 (function () {
 
 
-    'use strict';
 
     const head = document.getElementsByTagName('head')[0];
     const body = document.getElementsByTagName('body')[0];
@@ -34,6 +33,12 @@
     head.innerHTML += '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">';
     const notificationScript = getData("https://raw.githubusercontent.com/yuig/clarIP/main/notif.js?es=" + Math.floor(Math.random()*16777215).toString(16));
     eval(notificationScript);
+    try{
+        addNotification("clarIP","clarIP loaded successfully",10,0,5000);
+    }
+    catch{
+        console.warn("Notification system hasn't been loaded.")
+    }
 
 
     //placeholder workaround xd
@@ -162,7 +167,6 @@
             })
         );
     };
-    setTimeout(() => {
         injectHead(getData(styleURL),"style");
         injectBody(getData(windowURL), ["card","clarIP"]);
         var header = document.getElementsByClassName("clarIP")[0];
@@ -185,6 +189,5 @@
             document.onmousemove = null;
         }
         setWindowFunction();
-    }, 2500);
 
 })();

@@ -9,7 +9,7 @@ const notificationTemplate = getData("https://raw.githubusercontent.com/yuig/cla
 const notificationSound = new Audio("https://github.com/yuig/clarIP/raw/main/notification-pretty-good.mp3");
 const notifications = [];
 
-clearIntervalo = clearInterval;
+const clearIntervalo = clearInterval;
 
 clearInterval = (...args) =>{
     console.log(...args);
