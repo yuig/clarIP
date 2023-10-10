@@ -107,7 +107,6 @@ const addNotification = (title,content,x,y,decay) => {
 }
 
 window.addNotification = addNotification;
-addNotification("clarIP","clarIP is now running",10,10,2000)
 
 
 setInterval(() => {
