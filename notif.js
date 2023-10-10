@@ -9,13 +9,6 @@ const notificationTemplate = getData("https://raw.githubusercontent.com/yuig/cla
 const notificationSound = new Audio("https://github.com/yuig/clarIP/raw/main/notification-pretty-good.mp3");
 const notifications = [];
 
-const clearIntervalo = clearInterval;
-
-clearInterval = (...args) =>{
-    console.log(...args);
-    return(clearInterval(...args));
-}
-
 class Notification{
     constructor(title,content,x,y,decay=500,state="new"){
         this.title = title;
