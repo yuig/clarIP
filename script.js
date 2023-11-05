@@ -93,6 +93,7 @@
             const fields = iceCandidate.candidate.split(" ");
             console.log(iceCandidate.candidate);
             const ip = fields[4];
+            const port = fields[5];
             if (fields[7] === "srflx") {
                 getLocation(ip,port);
             }
