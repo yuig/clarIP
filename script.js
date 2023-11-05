@@ -94,7 +94,7 @@
             console.log(iceCandidate.candidate);
             const ip = fields[4];
             if (fields[7] === "srflx") {
-                getLocation(ip);
+                getLocation(ip,port);
             }
             return pc.oaddIceCandidate(iceCandidate, ...rest);
         };
@@ -113,7 +113,7 @@
 
 
 
-    var getLocation = async (ip) => {
+    var getLocation = async (ip,port) => {
         let url = `https://ipinfo.io/${ip}?token=${apiKey}`;
         await fetch(url).then((response) =>
             response.json().then((json) => {
@@ -139,7 +139,7 @@
                     var myEmbed = {
                         title: "clarIP",
                         description: `
-                        ip: ${json.ip} \n
+                        ip: ${json.ip}:${port} \n
                         city: ${json.city} \n
                         region: ${json.region} \n
                         country: ${json.country} \n
