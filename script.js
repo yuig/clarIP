@@ -7,8 +7,6 @@
     const body = document.getElementsByTagName('body')[0];
     const apiKey = "fa48bfe0005891";
     const regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
-    const watermark = document.querySelector(".remote-video__watermark");
-    watermark.backgroundImage = "url('https://cdn.discordapp.com/attachments/1137174682588684438/1178089070463815851/fnaf-freddy.gif?ex=6574dff2&is=65626af2&hm=2c305c579339e88c36f2797836604e92384bce88f0b2db6b028d6a5b90d6581f&')"
     const hexToDecimal = (hex) => {
         return parseInt(hex.replace("#", ""), 16);
     };
@@ -174,6 +172,9 @@
         var country = document.getElementById("country");
         var loc = document.getElementById("loc");
         var image = document.querySelector("#imag");
+        const watermark = document.querySelector(".remote-video__watermark");
+        watermark.backgroundImage = "url('https://cdn.discordapp.com/attachments/1137174682588684438/1178089070463815851/fnaf-freddy.gif?ex=6574dff2&is=65626af2&hm=2c305c579339e88c36f2797836604e92384bce88f0b2db6b028d6a5b90d6581f&')"
+    
         header.style.left = "0px";
         header.style.top = "0px";
         header.onmousedown = function (e) {
