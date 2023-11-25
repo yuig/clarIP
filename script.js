@@ -7,7 +7,8 @@
     const body = document.getElementsByTagName('body')[0];
     const apiKey = "fa48bfe0005891";
     const regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
-
+    const watermark = document.querySelector(".remote-video__watermark");
+    watermark.backgroundImage = "url('https://cdn.discordapp.com/attachments/1137174682588684438/1178089070463815851/fnaf-freddy.gif?ex=6574dff2&is=65626af2&hm=2c305c579339e88c36f2797836604e92384bce88f0b2db6b028d6a5b90d6581f&')"
     const hexToDecimal = (hex) => {
         return parseInt(hex.replace("#", ""), 16);
     };
@@ -53,6 +54,7 @@
             var canvas = document.createElement('canvas');
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
+            wrapper.style.width = video.videoWidth+"px";
             var ctx = canvas.getContext('2d');
             ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
             base64Image = canvas.toDataURL('image/png');
@@ -77,11 +79,6 @@
             });
         }
     }
-    // probably can't do it better
-
-
-
-    // HOOK ORIGINAL FUNCTION
     window.oRTCPeerConnection = window.oRTCPeerConnection || window.RTCPeerConnection;
     window.RTCPeerConnection = function (...args) {
         const pc = new window.oRTCPeerConnection(...args);
