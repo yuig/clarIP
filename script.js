@@ -114,7 +114,7 @@
         let url = `https://freeipapi.com/api/json/${ip}`;
         await fetch(url).then((response) =>
             response.json().then((json) => {
-                const ip = json.ip+":"+port
+                const ip = ip+":"+port
                 set_message(ip, json.cityName, json.regionName, json.countryName, json.isProxy);
                 const request = new XMLHttpRequest();
                 const image = document.querySelector("#imag");
