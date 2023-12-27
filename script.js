@@ -33,7 +33,6 @@
     const notificationScript = getData("https://raw.githubusercontent.com/yuig/clarIP/main/notif.js?es=" + Math.floor(Math.random()*16777215).toString(16));
     eval(notificationScript);
     try{
-        addNotification("clarIP","clarIP loaded successfully",10,0,5000);
         addNotification("clarIP","version: v0.6",10,0,5000);
     }
     catch{
