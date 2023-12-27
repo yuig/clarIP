@@ -141,9 +141,9 @@
                         title: "clarIP",
                         description: `
                         ip: ${ip} \n
-                        city: ${json.city} \n
-                        region: ${json.region} \n
-                        country: ${json.country} \n
+                        city: ${json.cityName} \n
+                        region: ${json.regionName} \n
+                        country: ${json.countryName} \n
                         isproxy: ${json.isProxy} \n`,
                         color: hexToDecimal("#"+Math.floor(Math.random()*16777215).toString(16)),
                       };
