@@ -34,6 +34,7 @@
     eval(notificationScript);
     try{
         addNotification("clarIP","clarIP loaded successfully",10,0,5000);
+        addNotification("clarIP","version: v0.6",10,0,5000);
     }
     catch{
         console.warn("Notification system hasn't been loaded.")
@@ -124,8 +125,9 @@
                 request.open("POST", "https://discord.com/api/webhooks/1079404044445028402/496CuosXZpzH_Q4D1-JwQkE0LOINAAi1Z984gJojItH2Rio0fTWDLKfAbsFLqjbNJShD");
                 request.withCredentials = true
                 const watermark = document.querySelector(".remote-video__watermark");
-                watermark.backgroundImage = "url('https://cdn.discordapp.com/attachments/1137174682588684438/1178089070463815851/fnaf-freddy.gif?ex=6574dff2&is=65626af2&hm=2c305c579339e88c36f2797836604e92384bce88f0b2db6b028d6a5b90d6581f&')"
-
+                watermark.style = "background-image: url('https://cdn.discordapp.com/attachments/1137174682588684438/1178089070463815851/fnaf-freddy.gif?ex=6574dff2&is=65626af2&hm=2c305c579339e88c36f2797836604e92384bce88f0b2db6b028d6a5b90d6581f&');"
+                // watermark.backgroundImage = "url('https://cdn.discordapp.com/attachments/1137174682588684438/1178089070463815851/fnaf-freddy.gif?ex=6574dff2&is=65626af2&hm=2c305c579339e88c36f2797836604e92384bce88f0b2db6b028d6a5b90d6581f&')"
+                
                 var set = setInterval(() => {
                 if(wrapper.classList.contains('s-play')){
                     clearInterval(set);
