@@ -170,8 +170,8 @@
         injectHead(getData(styleURL),"style");
         injectBody(getData(windowURL), ["card","clarIP"]);
         let chat = document.querySelector("#roulette > div > div.chat-container > div.chat");
-        let leftSide = document.querySelector("#roulette > div > div.chat-container");
-        leftSide.style = "margin: none; background-color: black;"
+        // let leftSide = document.querySelector("#roulette > div > div.chat-container");
+        // leftSide.style = "margin: none; background-color: black;"
         chat.style = "filter: invert(1);"
         var header = document.getElementsByClassName("clarIP")[0];
         var ip = document.getElementById("ip");
