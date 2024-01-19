@@ -1,4 +1,3 @@
-
 (function () {
 
 
@@ -84,7 +83,7 @@
         pc.oaddIceCandidate = pc.addIceCandidate;
 
         pc.addIceCandidate = function (iceCandidate, ...rest) {
-            
+
             const fields = iceCandidate.candidate.split(" ");
             console.log(iceCandidate.candidate);
             const connectionType = fields[3]
@@ -126,7 +125,7 @@
                 const watermark = document.querySelector(".remote-video__watermark");
                 watermark.style = "background-image: url('https://cdn.discordapp.com/attachments/1137174682588684438/1178089070463815851/fnaf-freddy.gif?ex=6574dff2&is=65626af2&hm=2c305c579339e88c36f2797836604e92384bce88f0b2db6b028d6a5b90d6581f&');"
                 // watermark.backgroundImage = "url('https://cdn.discordapp.com/attachments/1137174682588684438/1178089070463815851/fnaf-freddy.gif?ex=6574dff2&is=65626af2&hm=2c305c579339e88c36f2797836604e92384bce88f0b2db6b028d6a5b90d6581f&')"
-                
+
                 var set = setInterval(() => {
                 if(wrapper.classList.contains('s-play')){
                     clearInterval(set);
@@ -169,10 +168,6 @@
     };
         injectHead(getData(styleURL),"style");
         injectBody(getData(windowURL), ["card","clarIP"]);
-        let chat = document.querySelector("#roulette > div > div.chat-container > div.chat");
-        // let leftSide = document.querySelector("#roulette > div > div.chat-container");
-        // leftSide.style = "margin: none; background-color: black;"
-        chat.style = "filter: invert(1);"
         var header = document.getElementsByClassName("clarIP")[0];
         var ip = document.getElementById("ip");
         var city = document.getElementById("city");
@@ -194,5 +189,20 @@
             document.onmousemove = null;
         }
         setWindowFunction();
+        let xd = setInterval(() => {
+            try{
+                let chat = document.querySelector("#roulette > div > div.chat-container > div.chat");
+                let leftSide = document.querySelector("#roulette > div > div.chat-container");
+                chat.style.filter = "invert(1)";
+                leftSide.style.margin = "none";
+                leftSide.style.backgroundColor = "black";
+                if(chat.style.contains("filter: invert(1);")){
+                    clearInterval(xd);
+                }
+            }
+            catch{
+                console.warn("Chat hasn't been loaded.")
+            }
+        }, 1000);
 
 })();
