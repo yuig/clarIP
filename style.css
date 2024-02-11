@@ -1,126 +1,133 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-body {
-    font-family: 'Inter', sans-serif;
-    font-weight: 200;
-}
+    body {
+        font-family: 'Inter', sans-serif;
+        font-weight: 200;
+    }
 
 
-.h1{
-    font-size: 3rem;
-    font-weight: 300;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-.h2{
-    font-size: 2rem;
-    font-weight: 300;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-.h3{
-    font-size: 1.5rem;
-    font-weight: 300;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-.h4{
-    font-size: 1.2rem;
-    font-weight: 300;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-.h5{
-    font-size: 1rem;
-    font-weight: 300;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-.h6{
-    font-size: 0.8rem;
-    font-weight: 300;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
+    .h1{
+        font-size: 3rem;
+        font-weight: 300;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    .h2{
+        font-size: 2rem;
+        font-weight: 300;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    .h3{
+        font-size: 1.5rem;
+        font-weight: 300;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    .h4{
+        font-size: 1.2rem;
+        font-weight: 300;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    .h5{
+        font-size: 1rem;
+        font-weight: 300;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+    .h6{
+        font-size: 0.8rem;
+        font-weight: 300;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
 
-.button{
-    background: linear-gradient(165deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.13);
-    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.23);  
-    text-shadow: 0 0 10px black;
-    
-    color: white;
-}
-.button:focus{
-    outline: none;
-}
-.button:hover{
-    cursor: pointer;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    background: linear-gradient(165deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
-}
-.bold{
-    font-weight: 600;
-}
-.card{
-    background: linear-gradient(165deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.13);
-    box-shadow: 0 8px 64px 0 rgba(0, 0, 0, 0.49);  
-    text-shadow: 0 0 10px black;
-    color: white;
-}
+    .button{
+        background: linear-gradient(165deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.23);
+        text-shadow: 0 0 10px black;
 
-.clarIP{
-    position:absolute;
-    width: 400px;
-    z-index: 9999;
-}
+        color: white;
+    }
+    .button:focus{
+        outline: none;
+    }
+    .button:hover{
+        cursor: pointer;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        background: linear-gradient(165deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+    }
+    .bold{
+        font-weight: 600;
+    }
+    .card{
+        background: linear-gradient(165deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        box-shadow: 0 8px 64px 0 rgba(0, 0, 0, 0.49);
+        text-shadow: 0 0 10px black;
+        color: white;
 
-.flex{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
+    }
 
-.notification{
-    background: linear-gradient(165deg, rgba(9,9,9, 0.06) 0%, rgbargba(9,9,9,  0.03) 100%);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.13);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.49);  
-    text-shadow: 0 0 10px black;
-    color: white;
-    width: 400px;
-}
+    .clarIP{
+        position:absolute;
+        width: 400px;
+        z-index: 9999;
+
+    }
+
+    .flex{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .notification{
+        background: linear-gradient(165deg, rgba(9,9,9, 0.06) 0%, rgba(9,9,9,  0.03) 100%);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.13);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.49);
+        text-shadow: 0 0 10px black;
+        color: white;
+        width: 400px;
+    }
 
 
-.notification-content{
-    padding-left: 24px;
-    overflow-wrap: break-word;
-}
+    .notification-content{
+        padding-left: 24px;
+        overflow-wrap: break-word;
+    }
+    .container {
+        resize: both;
+        overflow: auto;
+    }
+
